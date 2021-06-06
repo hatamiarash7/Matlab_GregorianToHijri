@@ -71,11 +71,11 @@ end
 SHmdays = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
 SHmdaysleap = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 30];
 
-    if leaptestSH(yearinp) == 0 && dayinp > SHmdays(monthinp)
+    if leaptest(yearinp) == 0 && dayinp > SHmdays(monthinp)
         err = ['Number of days for month ', num2str(monthinp),...
         ' must not exceed ', num2str(SHmdays(monthinp))];
         error(err);
-    elseif leaptestSH(yearinp) == 1 && dayinp > SHmdaysleap(monthinp)
+    elseif leaptest(yearinp) == 1 && dayinp > SHmdaysleap(monthinp)
         err = ['Number of days for month ', num2str(monthinp),...
         ' must not exceed ', num2str(SHmdaysleap(monthinp))];
         error(err);

@@ -14,10 +14,10 @@ jul_era = floor((jdn - sh_epoch_jdn) / year_length);
 SHyear = jul_era + 475;
 SHday = jdn - sh_epoch_jdn - floor(jul_era * year_length) + 1;
 
-if leaptestSH(SHyear) == 1 && SHday > 366
+if leaptest(SHyear) == 1 && SHday > 366
     SHyear = SHyear + 1;
     SHday = SHday - 366;
-elseif leaptestSH(SHyear) == 0 && SHday > 365
+elseif leaptest(SHyear) == 0 && SHday > 365
     SHyear = SHyear + 1;
     SHday = SHday - 365;
 end
@@ -35,9 +35,9 @@ for SHmonth = 1:12
         mdays = 31;
     elseif SHmonth >= 7 && SHmonth < 12
         mdays = 30;
-    elseif leaptestSH(SHyear) == 0 && SHmonth == 12
+    elseif leaptest(SHyear) == 0 && SHmonth == 12
         mdays = 29;
-    elseif leaptestSH(SHyear) == 1 && SHmonth == 12
+    elseif leaptest(SHyear) == 1 && SHmonth == 12
         mdays = 30;
     end
     if SHday > mdays 
@@ -50,6 +50,6 @@ end
 SHdate = [SHyear, SHmonth, SHday];
 
 % Display date in Persian
-date_fa = [arabic2eastarabic(SHday),' ',monthnameSH(SHmonth),' ',arabic2eastarabic(SHyear)];
+date_fa = [arabic2eastarabic(SHday),' ',monthname(SHmonth),' ',arabic2eastarabic(SHyear)];
 
 end
